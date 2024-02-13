@@ -2,26 +2,18 @@
   <h1><%= @list.name %></h1>
 </div>
 
-<div class="list-card">
-  <!-- Display list information -->
-  <div class="list-info">
-    <h2>List Information:</h2>
-    <p><strong>List Name:</strong> <%= @list.name %></p>
-  </div>
+<div class="container">
 
-  <!-- Display combined movie and bookmark information -->
   <div class="combined-info">
-    <h2>Movies and Bookmarks:</h2>
-    <ul>
+    <h2 class = "text-align-center">Movies</h2>
       <% @list.bookmarks.each do |bookmark| %>
-        <li>
-          <h3><%= bookmark.movie.title %></h3>
-          <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
-          <p><strong>Comment:</strong> <%= bookmark.comment %></p>
-          <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        </li>
+      <div>
+        <h3><%= bookmark.movie.title %></h3>
+        <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
+        <p><strong>Comment:</strong> <%= bookmark.comment %></p>
+        <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
       <% end %>
-    </ul>
     <%= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
     <%= link_to "All lists", lists_path %>
   </div>

@@ -1,13 +1,18 @@
-<div>
-  <h1>All my lists</h1>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://rachelsreviews.net/wp-content/uploads/2016/06/film.jpg)">
+  All my film lists
 </div>
 
+<div class = "container">
+  <div class = "btn btn-flat">
+    <%= link_to "Add a list", new_list_path %>
+  </div>
 
-<div>
-  <% @lists.each do |list| %>
-    <%= link_to list.name, list_path(list)%>
-  <% end %>
+  <div class = "cards">
+    <% @lists.each do |list| %>
+      <div class = card>
+        <img src="" alt="List Picture">
+        <%= link_to list.name, list_path(list)%>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-
-<%= link_to "add a list", new_list_path %>

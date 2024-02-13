@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-flat {
+  color: white;
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #ecf901;
+  transition: background 0.3s ease;
+  width: 200px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  flex: justify-content;
+}
+
+.btn-flat:hover {
+  background: #ebf710;
+  color: white;
+}
