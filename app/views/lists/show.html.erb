@@ -9,6 +9,7 @@
       <% @list.bookmarks.each do |bookmark| %>
       <div>
         <h3><%= bookmark.movie.title %></h3>
+        <img src=<%= bookmark.movie.poster_url%> alt="">
         <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
         <p><strong>Comment:</strong> <%= bookmark.comment %></p>
         <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
