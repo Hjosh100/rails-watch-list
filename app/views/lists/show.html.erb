@@ -1,21 +1,22 @@
-<div>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @list.photo.key %>)">
   <h1><%= @list.name %></h1>
 </div>
 
 <div class="container">
+  <div class = "buttons">
+      <%= link_to "Add Movie", new_list_bookmark_path(@list), class: "btn btn-flat mt-2" %>
+      <%= link_to "All lists", lists_path, class: "btn btn-flat mt-2" %>
+  </div>
 
-  <div class="combined-info">
-    <h2 class = "text-align-center">Movies</h2>
-      <% @list.bookmarks.each do |bookmark| %>
-      <div>
-        <h3><%= bookmark.movie.title %></h3>
+  <div class = "cards">
+    <% @list.bookmarks.each do |bookmark| %>
+    <div class = "card">
         <img src=<%= bookmark.movie.poster_url%> alt="">
-        <p><strong>Overview:</strong> <%= bookmark.movie.overview %></p>
-        <p><strong>Comment:</strong> <%= bookmark.comment %></p>
-        <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </div>
+        <h3><strong><%= bookmark.movie.title %></strong></h3>
+        <p><%= bookmark.movie.overview %></p>
+        <p>Comment:<br> <%= bookmark.comment %></p>
+        <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-flat"  %>
+    </div>
       <% end %>
-    <%= link_to "Add Bookmark", new_list_bookmark_path(@list) %>
-    <%= link_to "All lists", lists_path %>
   </div>
 </div>

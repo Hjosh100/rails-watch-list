@@ -3,15 +3,13 @@
   text-align: center;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 24px;
-
-  img {
-    height: 200px;
-  }
+  margin-bottom: 20px;
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   height: 180px;
   display: flex;
   justify-content: center;

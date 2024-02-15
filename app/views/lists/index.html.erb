@@ -3,18 +3,13 @@
 </div>
 
 <div class = "container">
-  <div class = "btn btn-flat">
-    <%= link_to "Add a list", new_list_path %>
-  </div>
-
+  <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat mt-2" %>
   <div class = "cards">
     <% @lists.each do |list| %>
-      <div class = card>
-      <% if list.photo.key.present? %>
-          <%= cl_image_tag list.photo&.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <%= link_to list.name, list_path(list)%>
-        <%= link_to "delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
+      <div class = "card">
+        <%= cl_image_tag list.photo&.key %>
+        <%= link_to list.name, list_path(list), class: "btn btn-flat mt-2"%>
+        <%= link_to "delete", list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-flat m-2"%>
       </div>
     <% end %>
   </div>
